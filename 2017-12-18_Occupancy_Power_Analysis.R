@@ -1,11 +1,11 @@
 # simulate dataset to compare between two or more treatments
 
-n_site <- 10 # number of sites
-n_obs <- 5 # number of observations at each site
-occ1 <- 0.30 # true occupancy at treatment 1
-occ2 <- 0.90 # true occupancy at treatment 2
+n_site <- 15 # number of sites per treatment
+n_obs <- 12 # number of observations at each site
+occ1 <- 0.20 # true occupancy at treatment 1
+occ2 <- 0.40 # true occupancy at treatment 2
 # can add more treatments
-det_prob <- 0.30
+det_prob <- 0.40
 
 # create true occupancy states for sites within each treatment
 # here we only have 2 treatments
@@ -19,7 +19,7 @@ obs_sim <- matrix(rbinom(nrow(occ_sim)*n_obs, 1, det_prob*rep(as.numeric(occ_sim
 
 
 # here I have set up categorical variable to indicate the two treatments
-sites <- data.frame(site=c(rep(0, 10), rep(1, 10)))
+sites <- data.frame(site=c(rep(0, n_site), rep(1, n_site)))
 
 # set up data for unmarked
 library(unmarked)
